@@ -20,5 +20,4 @@ if file_path := pyautogui.prompt(text="Please enter the full path to your file."
         if data:
             qrautomata.automata(input_data=data)
 
-print(f"File_Path Value is: {file_path}\nData Value is: {data}")
 exit(0)

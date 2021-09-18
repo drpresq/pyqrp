@@ -40,9 +40,10 @@ def automata(input_data: Union[qrxls.QRXls, qrxls.QRXlsx]) -> None:
     for book in input_data:
         # Iterates through rows in books
         # row.keys(["PREP ITEM", "F/STOCK"])
-        for row in book[list(book.keys())[2]]:
-            # Writes the data from the second column then presses enter
-            pyautogui.write(str(row[list(row.keys())[1]]))
-            pyautogui.press('enter')
+        if book["index"] == 1:
+            for row in book[list(book.keys())[2]]:
+                # Writes the data from the second column then presses enter
+                pyautogui.write(str(row[list(row.keys())[1]]))
+                pyautogui.press('enter')
 
     warning_box.terminate()

@@ -76,12 +76,15 @@ class QRXls:
                                       "index": sheet.number,
                                       "data": out_sheet})
 
+    def __getitem__(self, n: int):
+        return self.__xls_sheets[n]
+
     def __iter__(self):
         self.__n = 0
         return self
 
     def __next__(self):
-        if self.__n <= len(self.__xls_sheets):
+        if self.__n < len(self.__xls_sheets):
             ret = self.__xls_sheets[self.__n]
             self.__n += 1
             return ret
@@ -175,12 +178,15 @@ class QRXlsx:
                                        "index": self.__xlsx_file.sheetnames.index(sheet._WorkbookChild__title)+1,
                                        "data": out_sheet})
 
+    def __getitem__(self, n: int):
+        return self.__xlsx_sheets[n]
+
     def __iter__(self):
         self.__n = 0
         return self
 
     def __next__(self):
-        if self.__n <= len(self.__xlsx_sheets):
+        if self.__n < len(self.__xlsx_sheets):
             ret = self.__xlsx_sheets[self.__n]
             self.__n += 1
             return ret
