@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pyqrp',
-    version="0.6",
+    version="0.7",
     packages=["pyqrp"],
     package_dir={'': "src"},
     scripts=['scripts/pyqrp'],
